@@ -1,11 +1,21 @@
 const app = require('../app')
 const request = require('supertest')
-const data = require('../data/user-dev-data')
-
+const data = require('../db/data/user-dev-data')
+const mongoose = require('mongoose');
+const {seedUsers} = require('../db/seed')
+const db = require('../')
 
 // beforeEach?
 //  -> reseed database with supertest
-// afterAll?
+// beforeEach(()=>{
+//     return seedUsers()
+// })
+
+
+
+afterAll(()=>{
+    return mongoose.connection.close()
+})
 // close hanging connections to server
 
 describe('appTests', () => {
