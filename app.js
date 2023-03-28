@@ -4,6 +4,11 @@ const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 const PASS = process.env.PASS
+const {
+    getUsers
+} = require('./controllers/controllers.js')
+const { handle404s } = require('./controllers/errorHandlingControllers')
+
 /* 
 mongoose.connect(`mongodb+srv://teamexpress:${PASS}@fan-finder-0.n7vtz4j.mongodb.net/?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
@@ -28,6 +33,15 @@ app.use(express.json())
 app.post('/api/users', (req,res)=>{
     console.log(req.body)
 })
+
+
+app.get('/api/users', getUsers)
+
+
+app.use(handle404s);
+
+
+app.listen(5050, () => console.log("Listening on port 5050!"));
 
 
 module.exports = app

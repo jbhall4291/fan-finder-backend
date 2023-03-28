@@ -6,7 +6,6 @@ const userData = require("./data/user-dev-data");
 
 const db = require("./connection");
 
-
 const seedUsers = async () => {
   console.log("seeding users");
   try {
