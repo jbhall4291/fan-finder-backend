@@ -18,7 +18,6 @@ const db = require('./connection')
     console.log(err);
   });
 */
-console.log(db);
 
 
 const seedUsers = async () => {
