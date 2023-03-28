@@ -19,7 +19,6 @@ const db = require('./connection')
   });
 */
 
-
 const seedUsers = async () => {
   console.log('seeding users')
   await User.deleteMany({});
