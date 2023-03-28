@@ -1,23 +1,22 @@
+require('dotenv').config()
 const app = require('../app')
 const request = require('supertest')
-const data = require('../db/data/user-dev-data')
 const mongoose = require('mongoose');
 const {seedUsers} = require('../db/seed')
-const db = require('../db/connection')
 
 // beforeEach?
 //  -> reseed database with supertest
-beforeEach(()=>{
-    return seedUsers()
+beforeEach( async ()=>{
+    await seedUsers()
 })
 
 
 
 afterAll(()=>{
     console.log("after all")
-    console.log(mongoose.connection, "before close")
+    console.log("before close")
     mongoose.connection.close()
-    console.log(mongoose.connection, "after close")
+    console.log("after close")
 })
 // close hanging connections to server
 

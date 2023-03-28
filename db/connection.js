@@ -1,8 +1,19 @@
 const mongoose = require("mongoose");
-const PASS = process.env.PASS
+const ENV = process.env.NODE_ENV || "development";
 
-// later, add connection for production db (atlas)
+require("dotenv").config({
+  path: `${__dirname}/../.env.development`,
+});
 
-const db = mongoose.createConnection('mongodb://127.0.0.1:27017/test', {maxPoolSize: 10})
+if (ENV !== "production") {
+  connectionURL = process.env.DEVELOPMENT_DB;
+} else {
+  connectionURL = process.env.PROD_DB;
+}
+console.log(ENV, "env")
+console.log(connectionURL)
+const connection = mongoose.connect(connectionURL).then(() => {
+  console.log("connection successful");
+});
 
-module.exports = db
+module.exports = connection;

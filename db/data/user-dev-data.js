@@ -3,7 +3,7 @@ const userData = [{
     avatarUrl: "https://cdn.shopify.com/s/files/1/0046/9139/4658/products/Winsford_394517_BlackPolish_015edd64-5036-41cd-a28d-b1d18a5d9d07_580x.png?v=1575357572"
 
 }, {
-    displayName: "Jeff", 
+    displayName: "Geoff", 
     avatarUrl: "https://hungarytoday.hu/wp-content/uploads/2018/02/18ps27.jpg"
 }, {
     displayName: "Kate", 

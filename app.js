@@ -25,10 +25,9 @@ mongoose
 app.use(cors());
 app.use(express.json())
 
-app.post('api/users', (req,res)=>{
+app.post('/api/users', (req,res)=>{
     console.log(req.body)
 })
 
-app.listen(5050, () => console.log("Listening on port 5050!"));
 
 module.exports = app

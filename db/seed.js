@@ -4,30 +4,21 @@ const PASS = process.env.PASS;
 const User = require("../schemas/user-schema");
 const userData = require("./data/user-dev-data");
 
-const db = require('./connection')
-
-/* mongoose
-  .connect(
-    `mongodb+srv://teamexpress:${PASS}@fan-finder-0.n7vtz4j.mongodb.net/Fan-finder-development?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
-  .then(() => {
-    console.log("Connected to database");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-*/
+const db = require("./connection");
 
 
 const seedUsers = async () => {
-  console.log('seeding users')
-  await User.deleteMany({});
-  await User.insertMany(userData);
+  console.log("seeding users");
+  try {
+    await User.deleteMany({});
+    await User.insertMany(userData);
+  } catch (err) {
+    console.log(err)
+  }
 };
 
-seedUsers().then(() => {
-  mongoose.connection.close();
-});
+// seedUsers().then(() => {
+//   mongoose.connection.close();
+// });
 
-module.exports = {seedUsers}
+module.exports = { seedUsers };
