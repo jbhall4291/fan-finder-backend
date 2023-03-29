@@ -79,7 +79,6 @@ describe('appTests', () => {
 
 
     describe('/api/comments', () => {
-
         test('GET: 200, can retrieve comments from comments collection', () => {
             return request(app)
                 .get('/api/comments')
@@ -95,7 +94,9 @@ describe('appTests', () => {
                 })
 
         })
+        test('GET: 200, can retrieve comments for a defined gig id by passing that gig id as a query', () => {
 
+        })
 
     })
 })
