@@ -17,7 +17,6 @@ const commentsData = [
         gig_id: "Z4qgVMyxjZtnPgJSycnMZda",
         created_at: new Date("2023-03-27")
     },
-     
 ]
 
 module.exports = commentsData;

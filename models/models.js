@@ -52,3 +52,11 @@ exports.selectUserGigs = (user_id) => {
       return user[0].gigs
     })
 }
+
+exports.selectFansByGig = (gig_id) => {
+  return User.find({"gigs": gig_id})
+    .then((data)=>{
+      console.log(data)
+      return data
+    })
+}
