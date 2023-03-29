@@ -6,13 +6,12 @@ const userData = [{
 }, {
     displayName: "Geoff", 
     avatarUrl: "https://hungarytoday.hu/wp-content/uploads/2018/02/18ps27.jpg",
-    gigs: []
+    gigs: ["example_gig"]
 
 }, {
     displayName: "Kate", 
     avatarUrl: "https://cdn.vox-cdn.com/thumbor/Al48-pEnyIn2rlgKX7MIHNmlE68=/0x0:5563x3709/1200x800/filters:focal(2302x1311:3192x2201)/cdn.vox-cdn.com/uploads/chorus_image/image/65752607/1048232144.jpg.0.jpg",
-    gigs: []
-
+    gigs: ["example_gig", "a different gig"]
 }]
 
 module.exports = userData

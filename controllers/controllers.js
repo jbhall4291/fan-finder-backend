@@ -5,7 +5,8 @@ const {
   selectComments,
   selectCommentsByGigId,
   pushGigToUser, 
-  selectUserGigs
+  selectUserGigs,
+  selectFansByGig
 } = require("../models/models");
 
 exports.getUsers = (req, res, next) => {
@@ -86,6 +87,20 @@ exports.getUserGigs = (req, res, next) => {
     .then((result)=>{
       console.log(result, "user gigs")
       res.status(200).send({"gigs": result})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+}
+
+exports.getFansByGig = (req, res, next) => {
+  const {gig_id} = req.params;
+  console.log(gig_id)
+
+  return selectFansByGig(gig_id)
+    .then((data)=>{
+      console.log(data)
+      res.status(200).send({"fans": data})
     })
     .catch((err)=>{
       console.log(err)

@@ -107,7 +107,7 @@ describe("appTests", () => {
     });
     test("GET: 200, can retrieve an array of fans going to the same gig by id", () => {
       return request(app)
-        .get("/api/gigs/Z4qgVMyxjZtnPgJSycnMZda/fans")
+        .get("/api/gigs/example_gig/fans")
         .expect(200)
         .then(({ body }) => {
           const fans = body.fans;
