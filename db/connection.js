@@ -10,8 +10,6 @@ if (ENV !== "production") {
 } else {
   connectionURL = process.env.PROD_DB;
 }
-console.log(ENV, "env")
-console.log(connectionURL)
 const connection = mongoose.connect(connectionURL).then(() => {
   console.log("connection successful");
 });

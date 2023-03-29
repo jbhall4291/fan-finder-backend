@@ -8,13 +8,14 @@ exports.selectAllUsers = () => {
 };
 
 exports.selectUserByName = (displayName) => {
-    console.log("here in models")
   return User.findOne({ displayName: displayName }).then((user) => {
-    console.log(user);
     return user;
   });
 };
 
+exports.createUser = (displayName, avatarURL ) => {
+  return User.create({"displayName": displayName, "avatarUrl": avatarURL})
+}
 exports.selectComments = () => {
   console.log('selecting comments!')
   return 
