@@ -27,10 +27,10 @@ exports.getUserbyName = (req, res, next) => {
 exports.postUser = (req, res, next) => {
     const {displayName, avatarUrl } = req.body
     return createUser(sentUser)
-    .then((returnedUser) => {
-        res.status(201).send(returnedObj)
-    })
-    .catch((err) => {
-        console.log()
-    })
+        .then((returnedUser) => {
+            res.status(201).send(returnedObj)
+        })
+        .catch((err) => {
+            console.log()
+        })
 }

@@ -14,7 +14,6 @@ beforeEach( async ()=>{
 
 afterAll(()=>{
     console.log("after all")
-    console.log("before close")
     mongoose.connection.close()
     console.log("after close")
 })
@@ -64,7 +63,7 @@ describe('appTests', () => {
                     })
                 })
         })
-        test.only('GET: 200, can get users by username', () => {
+        test('GET: 200, can get users by username', () => {
             return request(app)
                 .get('/api/users/BlueShoes')
                 .expect(200)
