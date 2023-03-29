@@ -13,9 +13,7 @@ beforeEach( async ()=>{
 })
 
 afterAll(()=>{
-    console.log("after all")
     mongoose.connection.close()
-    console.log("after close")
 })
 
 
@@ -44,8 +42,11 @@ describe('appTests', () => {
                 .post('/api/users')
                 .send(test_user)
                 .expect(201)
-                .then((data)=>{
-                    console.log(data)
+                .then(({body})=>{
+                    const user = body.user;
+
+                    expect(user).toHaveProperty('displayName', expect.any(String))
+                    expect(user).toHaveProperty('avatarUrl', expect.any(String))
                 })
         })
 
