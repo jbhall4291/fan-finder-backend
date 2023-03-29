@@ -108,7 +108,7 @@ describe("appTests", () => {
 
     test.only("POST: 201, can post a comment to a specified gig", () => {
       const test_comment = {
-        user: "joe",
+        user: "kate",
         text: "hi",
         gig_id: "Z4qgVMyxjZtnPgJSycnMZda",
         created_at: new Date("2023-03-29")
