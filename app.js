@@ -25,7 +25,4 @@ app.get('/api/users/:displayName', getUserbyName)
 app.use(handle404s);
 
 
-app.listen(5050, () => console.log("Listening on port 5050!"));
-
-
 module.exports = app

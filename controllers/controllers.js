@@ -1,5 +1,7 @@
 const {
-    selectAllUsers, selectUserByName
+    selectAllUsers, 
+    selectUserByName,
+    createUser
 } = require('../models/models')
 
 exports.getUsers = (req, res, next) => {
@@ -25,12 +27,13 @@ exports.getUserbyName = (req, res, next) => {
 }
 
 exports.postUser = (req, res, next) => {
-    const {displayName, avatarUrl } = req.body
-    return createUser(sentUser)
-    .then((returnedUser) => {
-        res.status(201).send(returnedObj)
-    })
-    .catch((err) => {
-        console.log()
-    })
+    const {displayName, avatarURL } = req.body
+
+    return createUser(displayName, avatarURL)
+        .then((returnedUser) => {
+            res.status(201).send({"user": returnedUser})
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
