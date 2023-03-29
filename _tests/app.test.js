@@ -90,7 +90,7 @@ describe("appTests", () => {
         });
     });
   });
-  describe("/api/gigs/:gig_id/comments", () => {
+  describe("/api/gigs/:gig_id", () => {
     test("GET: 200, can retrieve all comments for a specified gig", () => {
       return request(app)
         .get("/api/gigs/Z4qgVMyxjZtnPgJSycnMZda/comments")
@@ -103,6 +103,55 @@ describe("appTests", () => {
             expect(comment).toHaveProperty("text", expect.any(String));
             expect(comment).toHaveProperty("created_at");
           });
+        });
+    });
+    test("GET: 200, can retrieve an array of fans going to the same gig by id", () => {
+      return request(app)
+        .get("/api/gigs/Z4qgVMyxjZtnPgJSycnMZda/fans")
+        .expect(200)
+        .then(({ body }) => {
+          const fans = body.fans;
+          fans.forEach((fan) => {
+            expect(fan).toHaveProperty("displayName", expect.any(String));
+            expect(fan).toHaveProperty("avatarUrl", expect.any(String));
+          });
+        });
+    });
+  });
+
+  describe("/api/users/:user_id/gigs", () => {
+    test("PATCH: 201, can update the gigs user is going to", () => {
+      const test_gig = {
+        gig_id: "Z4qgVMyxjZtnPgJSycnMZda",
+      };
+
+      return request(app)
+        .patch("/api/users/BlueShoes/gigs")
+        .send(test_gig)
+        .expect(201)
+        .then(({body}) => {
+          const gigs = body.gigs;
+          console.log(gigs);
+          expect(Array.isArray(gigs)).toBe(true);
+          expect(gigs.includes("Z4qgVMyxjZtnPgJSycnMZda")).toBe(true);
+        });
+    });
+
+    test("GET: 200 can get gigs a user is going to", () => {
+      return request(app)
+        .get("/api/users/BlueShoes/gigs")
+        .expect(200)
+        .then(({ body }) => {
+          console.log(body);
+          const gigs = body.gigs;
+          console.log(Object.prototype.toString.call(gigs), "!!!!!!!!!!!!!");
+          console.log(gigs);
+          expect(Array.isArray(gigs)).toBe(true);
+          if (gigs.length > 0) {
+            gigs.forEach((gig) => {
+              expect(gig).toHaveProperty("gig_id", expect.any(String));
+            });
+          }
         });
     });
   });
