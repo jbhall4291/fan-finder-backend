@@ -49,6 +49,7 @@ describe('appTests', () => {
                     expect(user).toHaveProperty('avatarUrl', expect.any(String))
                 })
         })
+        
 
         test('GET: 200, can get users', () => {
             return request(app)
