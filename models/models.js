@@ -20,7 +20,13 @@ exports.createUser = (displayName, avatarURL) => {
 exports.selectComments = () => {
   console.log("selecting comments!");
   return Comments.find().then((comments) => {
-    console.log(comments)
+    return comments;
+  });
+};
+
+exports.selectCommentsByGigId = (gig_id) => {
+  return Comments.find({ gig_id: gig_id }).then((comments) => {
+    console.log(comments, "selected comments");
     return comments;
   });
 };
