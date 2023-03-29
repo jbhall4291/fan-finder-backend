@@ -14,3 +14,8 @@ exports.selectUserByName = (displayName) => {
     return user;
   });
 };
+
+exports.selectComments = () => {
+  console.log('selecting comments!')
+  return 
+}
