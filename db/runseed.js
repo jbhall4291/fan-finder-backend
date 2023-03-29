@@ -1,8 +1,8 @@
-const {seedUsers} = require("./seed");
+const {seed} = require("./seed");
 const mongoose = require("mongoose");
 
 const runSeed = () => {
-  return seedUsers().then(() => {
+  return seed().then(() => {
     mongoose.connection.close();
   });
 };
