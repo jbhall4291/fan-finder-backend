@@ -60,3 +60,11 @@ exports.selectFansByGig = (gig_id) => {
       return data
     })
 }
+
+exports.insertComment = (comment) => {
+  return Comments.create(comment)
+    .then((data)=>{
+      console.log(data)
+      return data
+    })
+}

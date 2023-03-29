@@ -124,7 +124,7 @@ describe("appTests", () => {
           expect(comment).toHaveProperty('user', expect.any(String))
           expect(comment).toHaveProperty('text', expect.any(String))
           expect(comment).toHaveProperty('gig_id', expect.any(String))
-          expect(comment).toHaveProperty('created_at', expect.any(Date))
+          expect(comment).toHaveProperty('created_at', expect.any(String))
         })
     })
 
