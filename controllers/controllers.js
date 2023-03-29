@@ -3,7 +3,9 @@ const {
   selectUserByName,
   createUser,
   selectComments,
-  selectCommentsByGigId
+  selectCommentsByGigId,
+  pushGigToUser, 
+  selectUserGigs
 } = require("../models/models");
 
 exports.getUsers = (req, res, next) => {
@@ -61,3 +63,31 @@ exports.getCommentsByGigId = (req, res, next) => {
       console.log(err);
     });
 };
+
+exports.patchUserGigs = (req, res, next) => {
+  const {user_id} = req.params;
+  const {gig_id} = req.body;
+  console.log(user_id)
+
+  return pushGigToUser(user_id, gig_id)
+    .then(({gigs})=>{
+      console.log(gigs, "updated gigs")
+      res.status(201).send({"gigs": gigs})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+}
+
+exports.getUserGigs = (req, res, next) => {
+  const {user_id} = req.params
+
+  return selectUserGigs(user_id)
+    .then(({gigs})=>{
+      console.log(gigs, "user gigs")
+      res.status(200).send({"gigs": gigs})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+}

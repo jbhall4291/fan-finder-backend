@@ -30,3 +30,20 @@ exports.selectCommentsByGigId = (gig_id) => {
     return comments;
   });
 };
+
+exports.pushGigToUser = (user_id, gig_id) => {
+  const filter = {displayName: user_id};
+  const update = {$push: {"gigs": gig_id}}
+
+  return User.updateOne(filter, update)
+    .then((update)=>{
+      console.log(update)
+    })
+}
+
+exports.selectUserGigs = (user_id) => {
+  return User.find({displayName: user_id})
+    .then((user)=>{
+      return user.gigs
+    })
+}
