@@ -7,7 +7,8 @@ const PASS = process.env.PASS
 const {
     getUsers,
     getUserbyName, 
-    postUser
+    postUser,
+    getComments
 } = require('./controllers/controllers.js')
 const { handle404s } = require('./controllers/errorHandlingControllers')
 
@@ -20,6 +21,7 @@ app.post('/api/users', postUser)
 
 app.get('/api/users', getUsers)
 app.get('/api/users/:displayName', getUserbyName)
+app.get('/api/comments', getComments)
 
 
 app.use(handle404s);

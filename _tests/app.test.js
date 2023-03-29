@@ -3,13 +3,12 @@ const app = require('../app')
 const request = require('supertest')
 
 const mongoose = require('mongoose');
-const {seedUsers} = require('../db/seed')
+const {seed} = require('../db/seed')
 
 // beforeEach?
 //  -> reseed database with supertest
 beforeEach( async ()=>{
-    await seedUsers()
-
+    await seed()
 })
 
 afterAll(()=>{
@@ -76,5 +75,28 @@ describe('appTests', () => {
                 })
         })
         
+    })
+
+
+    describe('/api/comments', () => {
+        test('GET: 200, can retrieve comments from comments collection', () => {
+            return request(app)
+                .get('/api/comments')
+                .expect(200)
+                .then(({body})=>{
+                    const comments = body.comments;
+                    comments.forEach((comment)=>{
+                        expect(comment).toHaveProperty('gig_id', expect.any(String))
+                        expect(comment).toHaveProperty('user', expect.any(String))
+                        expect(comment).toHaveProperty('text', expect.any(String))
+                        expect(comment).toHaveProperty('created_at')
+                    })
+                })
+
+        })
+        test('GET: 200, can retrieve comments for a defined gig id by passing that gig id as a query', () => {
+
+        })
+
     })
 })

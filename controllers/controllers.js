@@ -1,7 +1,8 @@
 const {
-    selectAllUsers, 
+    selectAllUsers,
     selectUserByName,
-    createUser
+    createUser,
+    selectComments
 } = require('../models/models')
 
 exports.getUsers = (req, res, next) => {
@@ -34,6 +35,17 @@ exports.postUser = (req, res, next) => {
             res.status(201).send({"user": returnedUser})
         })
         .catch((err) => {
+            console.log()
+        })
+}
+
+exports.getComments = (req, res, next) => {
+    return selectComments()
+        .then((comments)=>{
+            console.log(comments)
+            res.status(200).send({"comments": comments})
+        })
+        .catch((err)=>{
             console.log(err)
         })
 }
