@@ -5,7 +5,7 @@ const User = require("../schemas/user-schema");
 const userData = require("./data/user-dev-data");
 
 const Comments = require('../schemas/comments-schema');
-// comments data goes here
+const commentsData = require('./data/comments-dev-data')
 
 const db = require("./connection");
 
@@ -32,7 +32,7 @@ const seedComments=  async () => {
   console.log('seeding comments')
   try {
     await Comments.deleteMany({})
-    // await Comments.insertMany(commentsSeedData)
+    await Comments.insertMany(commentsData)
   } catch (err) {
     console.log(err)
   }
