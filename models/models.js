@@ -38,7 +38,10 @@ exports.pushGigToUser = (user_id, gig_id) => {
 
   return User.updateOne(filter, update)
     .then((update)=>{
+      
       console.log(update)
+      return User.find({displayName: user_id})
+      .then((data) => {return data[0]})
     })
 }
 
