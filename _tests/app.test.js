@@ -18,7 +18,7 @@ afterAll(()=>{
     mongoose.connection.close()
     console.log("after close")
 })
- */
+
 
 describe('appTests', () => {
 
@@ -60,9 +60,20 @@ describe('appTests', () => {
                     users.forEach((user)=>{
                         expect(user).toHaveProperty('displayName', expect.any(String))
                         expect(user).toHaveProperty('avatarUrl', expect.any(String))
-                        expect(user).toHaveProperty('uid', expect.any(String))
+                        expect(user).toHaveProperty('_id', expect.any(String))
                     })
                 })
         })
+        test.only('GET: 200, can get users by username', () => {
+            return request(app)
+                .get('/api/users/BlueShoes')
+                .expect(200)
+                .then(({body}) => {
+                    const user = body.user
+                    expect(user.displayName).toBe('BlueShoes')
+                    expect(user.avatarUrl).toBe('https://cdn.shopify.com/s/files/1/0046/9139/4658/products/Winsford_394517_BlackPolish_015edd64-5036-41cd-a28d-b1d18a5d9d07_580x.png?v=1575357572')
+                })
+        })
+        
     })
 })
