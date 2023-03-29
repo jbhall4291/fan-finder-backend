@@ -3,13 +3,13 @@ const app = require('../app')
 const request = require('supertest')
 
 const mongoose = require('mongoose');
-const {seedUsers} = require('../db/seed')
+const {seedUsers, seedComments} = require('../db/seed')
 
 // beforeEach?
 //  -> reseed database with supertest
 beforeEach( async ()=>{
     await seedUsers()
-
+    await seedComments()
 })
 
 afterAll(()=>{

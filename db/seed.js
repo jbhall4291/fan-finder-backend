@@ -39,4 +39,4 @@ const seedComments=  async () => {
 }
 
 
-module.exports = { seedUsers };
+module.exports = { seedUsers, seedComments };
