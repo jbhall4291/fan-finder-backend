@@ -105,6 +105,30 @@ describe("appTests", () => {
           });
         });
     });
+
+    test.only("POST: 201, can post a comment to a specified gig", () => {
+      const test_comment = {
+        user: "joe",
+        text: "hi",
+        gig_id: "Z4qgVMyxjZtnPgJSycnMZda",
+        created_at: new Date("2023-03-29")
+    }
+
+      return request(app)
+        .post('/api/gigs/Z4qgVMyxjZtnPgJSycnMZda/comments')
+        .send(test_comment)
+        .expect(201)
+        .then(({body}) => {
+          const comment = body.comment;
+          console.log(comment)
+          expect(comment).toHaveProperty('user', expect.any(String))
+          expect(comment).toHaveProperty('text', expect.any(String))
+          expect(comment).toHaveProperty('gig_id', expect.any(String))
+          expect(comment).toHaveProperty('created_at', expect.any(Date))
+        })
+    })
+
+
     test("GET: 200, can retrieve an array of fans going to the same gig by id", () => {
       return request(app)
         .get("/api/gigs/Z4qgVMyxjZtnPgJSycnMZda/fans")
