@@ -85,7 +85,7 @@ exports.getUserGigs = (req, res, next) => {
   return selectUserGigs(user_id)
     .then((result)=>{
       console.log(result, "user gigs")
-      res.status(200).send({"gigs": result.gigs})
+      res.status(200).send({"gigs": result})
     })
     .catch((err)=>{
       console.log(err)

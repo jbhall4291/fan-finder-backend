@@ -139,13 +139,14 @@ describe("appTests", () => {
           })
         })
       })
-      test('GET: 200 can get gigs a user is going to', ()=>{
+      test.only('GET: 200 can get gigs a user is going to', ()=>{
         return request(app)
           .get('/api/users/BlueShoes/gigs')
           .expect(200)
           .then(({body})=>{
               console.log(body)
               const gigs = body.gigs
+              console.log(Object.prototype.toString.call(gigs), "!!!!!!!!!!!!!")
               console.log(gigs)
               expect(Array.isArray(gigs)).toBe(true)
               if (gigs.length > 0) {
