@@ -144,12 +144,15 @@ describe("appTests", () => {
           .get('/api/users/BlueShoes/gigs')
           .expect(200)
           .then(({body})=>{
-            const gigs = body.gigs
+              console.log(body)
+              const gigs = body.gigs
               console.log(gigs)
               expect(Array.isArray(gigs)).toBe(true)
-              gigs.forEach((gig)=>{
-                expect(gig).toHaveProperty('gig_id', expect.any(String))
-              })
+              if (gigs.length > 0) {
+                gigs.forEach((gig)=>{
+                  expect(gig).toHaveProperty('gig_id', expect.any(String))
+                })
+              }
           })
       })
   })

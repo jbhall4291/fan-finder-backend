@@ -10,7 +10,8 @@ const {
     postUser,
     getComments,
     getCommentsByGigId,
-    patchUserGigs
+    patchUserGigs,
+    getUserGigs
 } = require('./controllers/controllers.js')
 const { handle404s } = require('./controllers/errorHandlingControllers')
 
@@ -22,7 +23,7 @@ app.post('/api/users', postUser)
 
 
 app.get('/api/users', getUsers)
-app.get('/api/users/:user_id/gigs')
+app.get('/api/users/:user_id/gigs', getUserGigs)
 app.get('/api/users/:displayName', getUserbyName)
 app.get('/api/comments', getComments)
 app.get('/api/gigs/:gig_id/comments', getCommentsByGigId)

@@ -53,10 +53,10 @@ exports.getComments = (req, res, next) => {
 
 exports.getCommentsByGigId = (req, res, next) => {
   const { gig_id } = req.params;
-  console.log(gig_id, "gig id")
+  // console.log(gig_id, "gig id")
   return selectCommentsByGigId(gig_id)
     .then((comments) => {
-      console.log(comments);
+      // console.log(comments);
       res.status(200).send({ comments: comments });
     })
     .catch((err) => {
@@ -70,9 +70,9 @@ exports.patchUserGigs = (req, res, next) => {
   console.log(user_id)
 
   return pushGigToUser(user_id, gig_id)
-    .then(({gigs})=>{
-      console.log(gigs, "updated gigs")
-      res.status(201).send({"gigs": gigs})
+    .then((result)=>{
+      console.log(result, "updated gigs")
+      res.status(201).send({"gigs": result.gigs})
     })
     .catch((err)=>{
       console.log(err)
@@ -83,9 +83,9 @@ exports.getUserGigs = (req, res, next) => {
   const {user_id} = req.params
 
   return selectUserGigs(user_id)
-    .then(({gigs})=>{
-      console.log(gigs, "user gigs")
-      res.status(200).send({"gigs": gigs})
+    .then((result)=>{
+      console.log(result, "user gigs")
+      res.status(200).send({"gigs": result.gigs})
     })
     .catch((err)=>{
       console.log(err)
