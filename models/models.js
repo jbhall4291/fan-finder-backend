@@ -4,6 +4,7 @@ const connection = require("../db/connection");
 
 exports.selectAllUsers = () => {
   return User.find().then((users) => {
+    console.log("got users from mongo")
     return users;
   });
 };
@@ -21,6 +22,7 @@ exports.createUser = (displayName, avatarURL) => {
 exports.selectComments = () => {
   console.log("selecting comments!");
   return Comments.find().then((comments) => {
+    console.log("got comments from mongo")
     return comments;
   });
 };
