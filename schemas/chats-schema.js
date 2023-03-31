@@ -14,7 +14,8 @@ const chatsSchema = new mongoose.Schema({
         required: true
     },
     created_at: {
-        type: String
+        type: Date,
+        required: true
     }
 })
 

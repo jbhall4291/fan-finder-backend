@@ -106,7 +106,7 @@ describe("appTests", () => {
         });
     });
 
-    test.only("POST: 201, can post a comment to a specified gig", () => {
+    test("POST: 201, can post a comment to a specified gig", () => {
       const test_comment = {
         user: "kate",
         text: "hi",
