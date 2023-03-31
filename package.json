@@ -2,11 +2,13 @@
   "name": "fanfinder_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "listen.js",
   "scripts": {
+    "start" : "node listen.js",
     "test": "jest --detectOpenHandles",
     "dev": "nodemon app.js",
-    "seed": "node ./db/seed.js"
+    "seed": "node ./db/seed.js",
+    "seed-prod": "node ./db/runseed.js"
   },
   "repository": {
     "type": "git",

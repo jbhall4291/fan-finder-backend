@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
-const ENV = process.env.NODE_ENV || "development";
+const ENV = process.env.NODE_ENV || "production";
+
+console.log(process.env.NODE_ENV + "<<<< process thingy")
+console.log(ENV + "<<< ENV")
 
 require("dotenv").config({
-  path: `${__dirname}/../.env.development`,
+  path: `${__dirname}/../.env.${ENV}`,
 });
 
 if (ENV !== "production") {

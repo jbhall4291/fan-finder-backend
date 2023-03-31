@@ -11,8 +11,10 @@ const {
 } = require("../models/models");
 
 exports.getUsers = (req, res, next) => {
+  console.log("getting users...")
   return selectAllUsers()
     .then((data) => {
+      console.log("sending users...")
       res.status(200).send({ users: data });
     })
     .catch((err) => {
@@ -44,8 +46,10 @@ exports.postUser = (req, res, next) => {
 };
 
 exports.getComments = (req, res, next) => {
+  console.log("getting comments...")
   return selectComments()
     .then((comments) => {
+      console.log("sending commments...")
       res.status(200).send({ comments: comments });
     })
     .catch((err) => {
