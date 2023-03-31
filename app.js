@@ -13,7 +13,10 @@ const {
     patchUserGigs,
     getUserGigs,
     getFansByGig,
-    postCommentByGig
+    postCommentByGig,
+    getChatByChatId,
+    getChatsByUserId,
+    postMessageToChat
 } = require('./controllers/controllers.js')
 const { handle404s } = require('./controllers/errorHandlingControllers')
 
@@ -48,10 +51,15 @@ app.post('/api/gigs/:gig_id/comments', postCommentByGig)
 app.get('/api/gigs/:gig_id/fans', getFansByGig)
 app.patch('/api/users/:user_id/gigs', patchUserGigs)
 
+app.get('/api/users/:user_id/chats', getChatsByUserId)
+app.get('/api/users/:user_id/:chat_id', getChatByChatId)
+app.post('/api/users/:user_id/:chat_id', postMessageToChat)
+// Create new chat
+
 app.use(handle404s);
 
 // socket io 
-io.on('connection', (socket)=>{
+io.on('connection', (socket) =>{
     console.log(`User connected: ${socket.id}`)
 
     socket.on('join_room', (data)=>{
@@ -68,7 +76,6 @@ io.on('connection', (socket)=>{
 })
 server.listen(4040, ()=>{
     console.log('listening on port 4040')
-    console.log(io)
 })
 
 

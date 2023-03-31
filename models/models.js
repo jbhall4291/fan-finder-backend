@@ -1,5 +1,6 @@
 const User = require("../schemas/user-schema");
 const Comments = require("../schemas/comments-schema");
+const Chats = require('../schemas/chats-schema')
 const connection = require("../db/connection");
 
 exports.selectAllUsers = () => {
@@ -41,7 +42,6 @@ exports.pushGigToUser = (user_id, gig_id) => {
   return User.updateOne(filter, update)
     .then((update)=>{
       
-      console.log(update)
       return User.find({displayName: user_id})
       .then((data) => {return data[0]})
     })
@@ -50,7 +50,6 @@ exports.pushGigToUser = (user_id, gig_id) => {
 exports.selectUserGigs = (user_id) => {
   return User.find({"displayName": user_id})
     .then((user)=>{
-      console.log(user);
       return user[0].gigs
     })
 }
@@ -67,6 +66,39 @@ exports.insertComment = (comment) => {
   return Comments.create(comment)
     .then((data)=>{
       console.log(data)
+      return data
+    })
+}
+
+exports.selectChatByChatId = (chat_id) => {
+  console.log(chat_id)
+  return Chats.find({"room": chat_id})
+    .then((data)=>{
+      return data
+    })
+}
+
+exports.selectChatsByUserId = (user_id) => {
+
+  return User.find({"displayName": user_id})
+    .then((user)=>{
+      return user[0].chats
+    })
+}
+
+exports.insertMessageToChat = (chat_id, user_id, message, created_at) => {
+  console.log('inserting chat message')
+  const new_message =     {
+      "user": user_id,
+      "message": message,
+      "room": chat_id,
+      "created_at": created_at
+    }
+  console.log(new_message)
+
+  return Chats.create(new_message)
+    .then((data)=>{
+      console.log(data, "inserted chat message")
       return data
     })
 }
