@@ -6,7 +6,8 @@ const {
   selectCommentsByGigId,
   pushGigToUser, 
   selectUserGigs,
-  selectFansByGig
+  selectFansByGig,
+  insertComment
 } = require("../models/models");
 
 exports.getUsers = (req, res, next) => {
@@ -110,3 +111,17 @@ exports.getFansByGig = (req, res, next) => {
       console.log(err)
     })
 }
+
+exports.postCommentByGig = (req, res, next) => {
+  const comment = req.body
+  console.log(comment)
+
+  return insertComment(comment)
+    .then((data)=>{
+      console.log(data)
+      res.status(201).send({"comment": data})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+} 

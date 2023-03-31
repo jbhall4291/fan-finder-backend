@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ENV = process.env.NODE_ENV || "production";
+const ENV = process.env.NODE_ENV || "development";
 
 console.log(process.env.NODE_ENV + "<<<< process thingy")
 console.log(ENV + "<<< ENV")
