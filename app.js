@@ -68,6 +68,7 @@ io.on('connection', (socket)=>{
 })
 server.listen(4040, ()=>{
     console.log('listening on port 4040')
+    console.log(io)
 })
 
 

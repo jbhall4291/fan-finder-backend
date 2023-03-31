@@ -38,5 +38,4 @@ const seedComments=  async () => {
   }
 }
 
-
 module.exports = {seed};

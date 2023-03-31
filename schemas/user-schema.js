@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
     },
     gigs: {
         type: Array,
+    },
+    chats: {
+        type: Array,   
     }
 }); 
 
