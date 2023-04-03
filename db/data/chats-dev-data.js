@@ -8,7 +8,7 @@ const chatsData = [
     {
         message: "Hola",
         room: "chat-1",
-        user: "Kate",
+        user: "Team Express",
         created_at: new Date ("2023-03-27")
     },
     {
@@ -20,7 +20,7 @@ const chatsData = [
     {
         message: "Me llamo Kate :)",
         room: "chat-1",
-        user: "Kate",
+        user: "Team Express",
         created_at: new Date ("2023-03-25")
     },
     {
@@ -32,11 +32,11 @@ const chatsData = [
     {
         message: "IKR we should go see them again next week",
         room: "chat-1",
-        user: "Kate",
+        user: "Team Express",
         created_at: new Date ("2023-03-23")
     },
     {
-        message: ":stuck_out_tongue: absolutely",
+        message: ":P absolutely",
         room: "chat-1",
         user: "Geoff",
         created_at: new Date ("2023-03-22")
@@ -56,7 +56,7 @@ const chatsData = [
     {
         message: "Hola",
         room: "chat-2",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-02-27")
     },
     {
@@ -68,7 +68,7 @@ const chatsData = [
     {
         message: "Me too. My favourite Rolling Stones song is Fool's Gold.",
         room: "chat-2",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-02-25")
     },
     {
@@ -80,11 +80,11 @@ const chatsData = [
     {
         message: "No no, it's defitely The Rolling Stones. I'm 100% sure of it",
         room: "chat-2",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-02-23")
     },
     {
-        message: "I'm not sure your a true fan",
+        message: "I'm not sure you're a true fan",
         room: "chat-2",
         user: "BlueShoes",
         created_at: new Date ("2023-02-22")
@@ -92,7 +92,7 @@ const chatsData = [
     {
         message: "I am promise. I saw them Under Pressure at Live Aid back in '85 ",
         room: "chat-2",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-02-21")
     },
     {
@@ -104,7 +104,7 @@ const chatsData = [
     {
         message: "The sky xD",
         room: "chat-3",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-01-27")
     },
     {
@@ -116,7 +116,7 @@ const chatsData = [
     {
         message: "Hi dude, do you have any of those photos from the gig the other night?",
         room: "chat-3",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-01-25")
     },
     {
@@ -128,7 +128,7 @@ const chatsData = [
     {
         message: "...the most epic one of course",
         room: "chat-3",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-01-23")
     },
     {
@@ -140,7 +140,7 @@ const chatsData = [
     {
         message: "Radical",
         room: "chat-3",
-        user: "Geoff",
+        user: "Team Express",
         created_at: new Date ("2023-01-21")
     }
 ]
