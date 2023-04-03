@@ -1,10 +1,8 @@
 const {seed} = require("./seed");
 const mongoose = require("mongoose");
 
-const runSeed = () => {
+export const runSeed = () => {
   return seed().then(() => {
     mongoose.connection.close();
   });
 };
-
-module.exports = {runSeed};
