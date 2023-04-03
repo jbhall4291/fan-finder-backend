@@ -71,7 +71,6 @@ exports.insertComment = (comment) => {
 }
 
 exports.selectChatByChatId = (chat_id) => {
-  console.log(chat_id)
   return Chats.find({"room": chat_id})
     .then((data)=>{
       return data
@@ -87,14 +86,12 @@ exports.selectChatsByUserId = (user_id) => {
 }
 
 exports.insertMessageToChat = (chat_id, user_id, message, created_at) => {
-  console.log('inserting chat message')
   const new_message =     {
-      "user": user_id,
-      "message": message,
-      "room": chat_id,
-      "created_at": created_at
-    }
-  console.log(new_message)
+    "user": user_id,
+    "message": message,
+    "room": chat_id,
+    "created_at": created_at
+  }
 
   return Chats.create(new_message)
     .then((data)=>{

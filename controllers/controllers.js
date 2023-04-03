@@ -156,14 +156,11 @@ exports.getChatByChatId = (req, res, next) => {
 exports.postMessageToChat = (req,res,next) => {
   const {chat_id, user_id} = req.params
   const {message} = req.body
-  const created_at = new Date.now()
-
-  console.log('hello chat')
+  const created_at = Date.now()
 
   return insertMessageToChat(chat_id, user_id, message, created_at)
     .then((data)=>{
-      console.log(data)
-      res.status(201).send({msg: "message added"})
+      res.status(201).send({"posted_message": data})
     })
     .catch((err)=>{
       console.log(err)

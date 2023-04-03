@@ -18,7 +18,7 @@ const {
     getChatsByUserId,
     postMessageToChat
 } = require('./controllers/controllers.js')
-const { handle404s } = require('./controllers/errorHandlingControllers')
+const { handle404s, handle500s } = require('./controllers/errorHandlingControllers')
 
 // socketio setup
 const http = require('http')
@@ -38,6 +38,7 @@ const io = new Server(server, {
 app.use(express.json())
 
 app.post('/api/users', postUser)
+app.post('/api/users/:user_id/:chat_id', postMessageToChat)
 
 
 app.get('/api/users', getUsers)
@@ -53,13 +54,12 @@ app.patch('/api/users/:user_id/gigs', patchUserGigs)
 
 app.get('/api/users/:user_id/chats', getChatsByUserId)
 app.get('/api/users/:user_id/:chat_id', getChatByChatId)
-app.post('/api/users/:user_id/:chat_id', postMessageToChat)
 // Create new chat
 
 app.use(handle404s);
-
+app.use(handle500s)
 // socket io 
-io.on('connection', (socket) =>{
+io.sockets.on('connection', (socket) =>{
     console.log(`User connected: ${socket.id}`)
 
     socket.on('join_room', (data)=>{

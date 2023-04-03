@@ -180,7 +180,7 @@ describe("appTests", () => {
     });
   });
 
-  describe.only('chat_tests', () => {
+  describe('chat_tests', () => {
     test('GET: 200 /api/users/:user_id/chats, can get a list of chats a user is in by id', () => {
       return request(app)
         .get('/api/users/Kate/chats')
@@ -210,12 +210,21 @@ describe("appTests", () => {
         })
     })
     test('POST: 201 /api/users/:user_id/:chat_id, can add to the history of a given chat', () => {
-      const test_message = "this is a test message"
+      const test_message = {message: "this is a test message"}
 
       return request(app)
         .post('/api/users/Kate/chat-2')
         .send(test_message)
         .expect(201)
+        .then(({body})=>{
+          const posted_message = body.posted_message
+
+          expect(posted_message).toHaveProperty('user', expect.any(String))
+          expect(posted_message).toHaveProperty('message', expect.any(String))
+          expect(posted_message).toHaveProperty('created_at', expect.any(String))
+          expect(posted_message).toHaveProperty('room', expect.any(String))
+
+        })
 
     })
   })
