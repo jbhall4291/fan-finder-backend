@@ -7,4 +7,4 @@ const runSeed = () => {
   });
 };
 
-runSeed();
+module.exports = {runSeed};
