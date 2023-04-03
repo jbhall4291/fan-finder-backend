@@ -8,19 +8,19 @@ const chatsData = [
     {
         message: "Hola",
         room: "chat-1",
-        user: "Geoff",
+        user: "Kate",
         created_at: new Date ("2023-03-27")
     },
     {
-        message: "Bonjour",
+        message: "Coma te llamas?",
         room: "chat-1",
         user: "Geoff",
         created_at: new Date ("2023-03-26")
     },
     {
-        message: "Howdy",
+        message: "Me llamo Kate :)",
         room: "chat-1",
-        user: "Geoff",
+        user: "Kate",
         created_at: new Date ("2023-03-25")
     },
     {
@@ -30,81 +30,81 @@ const chatsData = [
         created_at: new Date ("2023-03-24")
     },
     {
-        message: "Whatsup?",
+        message: "IKR we should go see them again next week",
         room: "chat-1",
-        user: "Geoff",
+        user: "Kate",
         created_at: new Date ("2023-03-23")
     },
     {
-        message: "Hiya",
+        message: ":stuck_out_tongue: absolutely",
         room: "chat-1",
         user: "Geoff",
         created_at: new Date ("2023-03-22")
     },
     {
-        message: "How are you?",
+        message: "When shall we book tickets?",
         room: "chat-1",
         user: "Geoff",
         created_at: new Date ("2023-03-21")
     },
     {
-        message: "Hello",
+        message: "Howdy partner",
         room: "chat-2",
-        user: "Kate",
+        user: "BlueShoes",
         created_at: new Date ("2023-02-28")
     },
     {
         message: "Hola",
         room: "chat-2",
-        user: "Kate",
+        user: "Geoff",
         created_at: new Date ("2023-02-27")
     },
     {
-        message: "Bonjour",
+        message: "I'm super hyped for the Rolling Stones",
         room: "chat-2",
-        user: "Kate",
+        user: "BlueShoes",
         created_at: new Date ("2023-02-26")
     },
     {
-        message: "Howdy",
+        message: "Me too. My favourite Rolling Stones song is Fool's Gold.",
         room: "chat-2",
-        user: "Kate",
+        user: "Geoff",
         created_at: new Date ("2023-02-25")
     },
     {
-        message: "Epic gig tonight",
+        message: "I think that's the Stone Roses?",
         room: "chat-2",
-        user: "Kate",
+        user: "BlueShoes",
         created_at: new Date ("2023-02-24")
     },
     {
-        message: "Whatsup?",
+        message: "No no, it's defitely The Rolling Stones. I'm 100% sure of it",
         room: "chat-2",
-        user: "Kate",
+        user: "Geoff",
         created_at: new Date ("2023-02-23")
     },
     {
-        message: "Hiya",
+        message: "I'm not sure your a true fan",
         room: "chat-2",
-        user: "Kate",
+        user: "BlueShoes",
         created_at: new Date ("2023-02-22")
     },
     {
-        message: "How are you?",
+        message: "I am promise. I saw them Under Pressure at Live Aid back in '85 ",
         room: "chat-2",
-        user: "Kate",
+        user: "Geoff",
         created_at: new Date ("2023-02-21")
     },
     {
-        message: "Hello",
+        message: "What's up?",
         room: "chat-3",
         user: "BlueShoes",
         created_at: new Date ("2023-01-28")
     },
     {
-        message: "Hola",
+        message: "The sky xD",
         room: "chat-3",
-        user: "BlueShoes",
+        user: "Geoff",
         created_at: new Date ("2023-01-27")
     },
     {
@@ -114,33 +114,33 @@ const chatsData = [
         created_at: new Date ("2023-01-26")
     },
     {
-        message: "Howdy",
+        message: "Hi dude, do you have any of those photos from the gig the other night?",
         room: "chat-3",
-        user: "BlueShoes",
+        user: "Geoff",
         created_at: new Date ("2023-01-25")
     },
     {
-        message: "Epic gig tonight",
+        message: "Which one? The epic gig or the more epic gig?",
         room: "chat-3",
         user: "BlueShoes",
         created_at: new Date ("2023-01-24")
     },
     {
-        message: "Whatsup?",
+        message: "...the most epic one of course",
         room: "chat-3",
-        user: "BlueShoes",
+        user: "Geoff",
         created_at: new Date ("2023-01-23")
     },
     {
-        message: "Hiya",
+        message: "The picture are all on my instagram dude",
         room: "chat-3",
         user: "BlueShoes",
         created_at: new Date ("2023-01-22")
     },
     {
-        message: "How are you?",
+        message: "Radical",
         room: "chat-3",
-        user: "BlueShoes",
+        user: "Geoff",
         created_at: new Date ("2023-01-21")
     }
 ]
