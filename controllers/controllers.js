@@ -7,7 +7,10 @@ const {
   pushGigToUser, 
   selectUserGigs,
   selectFansByGig,
-  insertComment
+  insertComment,
+  selectChatByChatId,
+  selectChatsByUserId,
+  insertMessageToChat
 } = require("../models/models");
 
 exports.getUsers = (req, res, next) => {
@@ -125,3 +128,41 @@ exports.postCommentByGig = (req, res, next) => {
       console.log(err)
     })
 } 
+
+exports.getChatsByUserId = (req,res, next) => {
+  const {user_id} = req.params;
+
+  return selectChatsByUserId(user_id)
+    .then((data)=>{
+      res.status(200).send({"chats": data})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+}
+
+exports.getChatByChatId = (req, res, next) => {
+  const {chat_id} = req.params;
+
+  return selectChatByChatId(chat_id)
+    .then((data)=>{
+      res.status(200).send({"chat_history": data})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+}
+
+exports.postMessageToChat = (req,res,next) => {
+  const {chat_id, user_id} = req.params
+  const {message} = req.body
+  const created_at = Date.now()
+
+  return insertMessageToChat(chat_id, user_id, message, created_at)
+    .then((data)=>{
+      res.status(201).send({"posted_message": data})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+}

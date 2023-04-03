@@ -106,7 +106,7 @@ describe("appTests", () => {
         });
     });
 
-    test.only("POST: 201, can post a comment to a specified gig", () => {
+    test("POST: 201, can post a comment to a specified gig", () => {
       const test_comment = {
         user: "kate",
         text: "hi",
@@ -179,4 +179,53 @@ describe("appTests", () => {
         });
     });
   });
+
+  describe('chat_tests', () => {
+    test('GET: 200 /api/users/:user_id/chats, can get a list of chats a user is in by id', () => {
+      return request(app)
+        .get('/api/users/Kate/chats')
+        .expect(200)
+        .then(({body})=>{
+
+            const chats = body.chats
+            console.log(body)
+           
+        })
+    })
+
+    test('GET: 200 /api/users/:user_id/:chat_id, can get the history of a given chat', ()=>{
+      return request(app)
+        .get('/api/users/Kate/chat-2')
+        .expect(200)
+        .then(({body})=>{
+          const chat = body.chat_history
+          if (chat.length>0){
+            chat.forEach((message)=>{
+              expect(message).toHaveProperty('user', expect.any(String))
+              expect(message).toHaveProperty('room', expect.any(String))
+              expect(message).toHaveProperty('created_at', expect.any(String))
+              expect(message).toHaveProperty('message', expect.any(String))
+            })
+          }
+        })
+    })
+    test('POST: 201 /api/users/:user_id/:chat_id, can add to the history of a given chat', () => {
+      const test_message = {message: "this is a test message"}
+
+      return request(app)
+        .post('/api/users/Kate/chat-2')
+        .send(test_message)
+        .expect(201)
+        .then(({body})=>{
+          const posted_message = body.posted_message
+
+          expect(posted_message).toHaveProperty('user', expect.any(String))
+          expect(posted_message).toHaveProperty('message', expect.any(String))
+          expect(posted_message).toHaveProperty('created_at', expect.any(String))
+          expect(posted_message).toHaveProperty('room', expect.any(String))
+
+        })
+
+    })
+  })
 });
