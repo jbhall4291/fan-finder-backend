@@ -14,6 +14,12 @@ const userData = [{
     avatarUrl: "https://cdn.vox-cdn.com/thumbor/Al48-pEnyIn2rlgKX7MIHNmlE68=/0x0:5563x3709/1200x800/filters:focal(2302x1311:3192x2201)/cdn.vox-cdn.com/uploads/chorus_image/image/65752607/1048232144.jpg.0.jpg",
     gigs: ["example_gig", "a different gig"],
     chats: ["chat-1", "chat-2", "chat-3"]
+},
+{
+    displayName: "Team Express", 
+    avatarUrl: "https://cdn.vox-cdn.com/thumbor/Al48-pEnyIn2rlgKX7MIHNmlE68=/0x0:5563x3709/1200x800/filters:focal(2302x1311:3192x2201)/cdn.vox-cdn.com/uploads/chorus_image/image/65752607/1048232144.jpg.0.jpg",
+    gigs: ["example_gig", "a different gig"],
+    chats: ["chat-1", "chat-2", "chat-3"]
 }]
 
 module.exports = userData
