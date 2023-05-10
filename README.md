@@ -15,7 +15,7 @@ This project was initially built as part of a team of 4 (big shout out to Team E
 * Use of Agile methodologies, inc. Kanban boards and daily Stand Ups
 * Implementing the Software Development Lifecycle framework
 
-## Using NC-NEWS
+## Using Fan Finder
 
 The corresponding frontend for this project can [be found here](https://github.com/jbhall4291/fan-finder-fe), which contains all the information required to get Fan Finder up and running on your device. If you're interested in just the backend, then read on...
 
